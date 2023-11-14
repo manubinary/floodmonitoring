@@ -1,0 +1,49 @@
+
+.main {
+  width: 100%;
+  .headerContainer {
+    padding-top: 5%;
+    padding-bottom: 2%;
+    h2 {
+      color: chocolate ;
+      font-weight: 700;
+    }
+  }
+  .searchContainer {
+    padding-top: 5%;
+    padding-bottom: 2%;
+     input {
+       border-radius: 6px;
+     }
+     p {
+       padding-right: 8px;
+       float: left;
+     }
+  }
+  .noWrap {
+    white-space: nowrap;
+  }
+  .selectionIncluded {
+    cursor: pointer;
+  }
+  .pagination {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+}
+
+.modal-body {
+  width: 95%;
+  height: auto;
+}
+
+.modal-dialog {
+  max-width: none !important;
+   margin-right: 15px !important;; 
+   margin-left: 15px !important;;
+}
+
+.modalBodyContainer {
+  height: 100% !important;
+}
