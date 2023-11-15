@@ -8,6 +8,11 @@ import Col from 'react-bootstrap/Col';
 function Home() {
   const [stationList, setStationList] = useState('');
   const [labelFilter, setLabelFilter] = useState('');
+  /*
+  *Initially load the station list.
+  * Here simple fetch method is used
+  * We can implement redux and axios to keep the data more global
+  * */
   useEffect(()=> {
      fetch('https://environment.data.gov.uk/flood-monitoring/id/stations')
       .then((response) => response.json())
@@ -27,6 +32,9 @@ function Home() {
           <Col xs={12} md={6} lg={6} className="headerContainer">
             <h2> Flood Monitoring</h2>
           </Col>
+          {/*
+          *Simple search tool implemented here
+          */}
           <Col xs={12} md={6} lg={6} className="searchContainer">
             <p>Search here</p>
             <input

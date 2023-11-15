@@ -6,6 +6,12 @@ import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+/**
+ * this component is used implement station listing table with other informations
+ * 
+ * station list fetched from the API and passed to this component from the parent component.
+ * 
+ */
 function StationList (props) {
   var [stationList] = useState(props.stationList);
   var [stationDetail, setStationDetail] = useState([]);
@@ -16,6 +22,15 @@ function StationList (props) {
     setCurrentPage(pageNumber);
   };
 
+  const loadStationReading = (data) => {
+    setStationDetail (data);
+    setLoadStationReadingChart(!loadStationReadingChart);
+  }
+  /**
+   * 
+   * bootstrap table is used here , so it's responsive.
+   * table implemented by two functions , one for header and other for the content
+   */
   const getTableHeader = () => {
     return (<thead>
       <tr>
@@ -29,10 +44,11 @@ function StationList (props) {
     </thead>)
   };
 
-  const loadStationReading = (data) => {
-    setStationDetail (data);
-    setLoadStationReadingChart(!loadStationReadingChart);
-  }
+/**
+ * Here table content implemented
+ * table search and pagination changes are implemented
+ * search parameter is passing from the parent component 
+ */
 
   const getTableContent = () => {
     const labelFilter = props.labelFilter;
@@ -61,7 +77,11 @@ function StationList (props) {
         return tableContent;
     }
   };
-
+/**
+ * 
+ * Modal is implemented, modal is implemented using bootstrap library. 
+ * each station reading is implemented in this modal and that is on another component
+ */
   const getStationReadingModal = () => {
     return (
       <Modal show={loadStationReadingChart} onHide={()=> {setLoadStationReadingChart(!loadStationReadingChart);}}>
@@ -69,7 +89,6 @@ function StationList (props) {
         <Modal.Header closeButton>
           <Modal.Title>{stationDetail.label}</Modal.Title>
         </Modal.Header>
-
         <Modal.Body>
           {<StationReading stationReference={stationDetail.stationReference}/>}
         </Modal.Body>

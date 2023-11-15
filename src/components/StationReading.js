@@ -5,7 +5,12 @@ import DataTable from 'react-data-table-component';
 import './Home.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+/**
+ * 
+ * Based on the selected station , station reference is passing to this component
+ * using the station reference fetch the staion reading for last 24 hrs.
+ * 
+ */
 
 function StationReading (props) {
     var [stationReading, setStationsReading] = useState([]);
@@ -21,7 +26,11 @@ function StationReading (props) {
          console.error(error);
        });
      }, [stationReference]);
-
+/**
+ * 
+ * the line chart is implemented here, which shows the 24 hrs data for the selelcted station
+ * rechart is used for implementing the chart
+ */
 
      const getChart = () => {
         var dataSet = [];
@@ -48,7 +57,12 @@ function StationReading (props) {
           );
     
       }
-    
+    /**
+ * 
+ * the table is implemented here, which shows the 24 hrs data for the selelcted station
+ * react-data-table-component is used for implementing the table
+ * which allow us simple pagination 
+ */
       const getTableReading = () => {
         var data = [];
         var columns = [];
