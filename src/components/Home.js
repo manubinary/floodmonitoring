@@ -34,6 +34,7 @@ function Home() {
           </Col>
           {/*
           *Simple search tool implemented here
+          * all elemets are searchable 
           */}
           <Col xs={12} md={6} lg={6} className="searchContainer">
             <p>Search here</p>
